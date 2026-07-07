@@ -1,0 +1,80 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  @include breakpoint(tablet) {
+    font-size: clamp(
+      16px,
+      calc(16px + (22 - 16) * ((100vw - 768px) / (1024 - 768))),
+      22px
+    );
+  }
+  @include breakpoint(laptop) {
+    font-size: clamp(
+      22px,
+      calc(22px + (30 - 22) * ((100vw - 1024px) / (1440 - 1024))),
+      30px
+    );
+  }
+  @include breakpoint(desktop) {
+    font-size: clamp(
+      30px,
+      calc(30px + (42 - 30) * ((100vw - 1440px) / (1920 - 1440))),
+      42px
+    );
+  }
+  @include breakpoint(desktopxl) {
+    font-size: clamp(
+      42px,
+      calc(42px + (56 - 42) * ((100vw - 1920px) / (2560 - 1920))),
+      56px
+    );
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    h2 {
+      font-weight: 900;
+    }
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    @include breakpoint(laptop) {
+      gap: 2rem;
+    }
+    @include breakpoint(desktop) {
+      gap: 3rem;
+    }
+    @include breakpoint(desktopxl) {
+      gap: 4rem;
+    }
+  }
+  .icons {
+    color: $font-color;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-left: -20px;
+    @include breakpoint(laptop) {
+      gap: 1.5rem;
+    }
+    @include breakpoint(desktop) {
+      gap: 2rem;
+    }
+    @include breakpoint(desktopxl) {
+      gap: 3rem;
+    }
+    a {
+      text-decoration: none;
+      color: $font-color;
+    }
+  }
+}

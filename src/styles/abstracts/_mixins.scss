@@ -1,3 +1,4 @@
+@use "./variables" as *;
 @mixin breakpoint($bp) {
   @if $bp == tablet {
     @media (min-width: $bp-tablet) {
@@ -5,8 +6,8 @@
     }
   }
 
-  @if $bp == tablethorizontal {
-    @media (min-width: $bp-tablet-horizontal) {
+  @if $bp == laptop {
+    @media (min-width: $bp-laptop) {
       @content;
     }
   }

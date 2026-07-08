@@ -1,1 +1,6 @@
-// all keyframes 
+@use "../abstracts/variables" as *;
+.btn:hover {
+  transform: scale(1.1);
+  background-color: $font-color;
+  color: $white-color;
+}

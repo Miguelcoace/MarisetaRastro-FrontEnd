@@ -1,0 +1,18 @@
+.separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 50px 0;
+}
+
+.line {
+  width: 80px;
+  height: 2px;
+  background-color: #cfc8c2;
+}
+
+.icon {
+  color: #8d867e;
+  font-size: 18px;
+}

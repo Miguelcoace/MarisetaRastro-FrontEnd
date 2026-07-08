@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.btn {
+  transition:
+    transform 0.3s linear,
+    background-color 0.3s linear;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: solid $font-color 3px;
+  font-family: $WorkSans-font;
+  color: $font-color;
+  font-size: clamp($font-size, calc(16px + (100vw - 320px) * 0.0179), 24px);
+  padding: 8px;
+  @include breakpoint(tablet) {
+    font-size: clamp(24px, calc(24px + (100vw - 768px) * 0.06275), 40px);
+  }
+  @include breakpoint(laptop) {
+    font-size: clamp(40px, calc(40px + (100vw - 1024px) * 0.0241), 50px);
+    padding: 14px;
+  }
+  @include breakpoint(desktop) {
+    font-size: clamp(50px, calc(50px + (100vw - 1440px) * 0.06263), 80px);
+    padding: 20px;
+  }
+  @include breakpoint(desktopxl) {
+    font-size: clamp(80px, calc(80px + (100vw - 1920px) * 0.03125), 100px);
+    padding: 30px;
+    border-width: 10px;
+  }
+}

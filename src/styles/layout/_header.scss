@@ -1,0 +1,73 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.header {
+  .hero {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("../../assets/images.jfif");
+    background-size: cover;
+    background-position: center;
+    height: clamp(220px, calc(220px + (100vw - 320px) * 0.2908), 350px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include breakpoint(tablet) {
+      height: clamp(550px, calc(550px + (100vw - 768px) * 1.5625), 950px);
+    }
+    @include breakpoint(laptop) {
+      height: clamp(950px, calc(950px + (100vw - 1024px) * 0.60241), 1200px);
+    }
+    @include breakpoint(desktop) {
+      height: clamp(1200px, calc(1200px + (100vw - 1440px) * 0.41667), 1400px);
+    }
+    @include breakpoint(desktopxl) {
+      height: clamp(1400px, calc(1400px + (100vw - 1920px) * 0.625), 1800px);
+    }
+    h1 {
+      font-family: $Playfair-font, serif;
+      color: $tertiary-color;
+      text-shadow: 2px 2px 3px black;
+      text-align: center;
+      text-justify: center;
+      font-size: clamp(32px, calc(32px + (100vw - 320px) * 0.07383), 65px);
+      @include breakpoint(tablet) {
+        font-size: clamp(65px, calc(65px + (100vw - 768px) * 0.09804), 90px);
+      }
+      @include breakpoint(laptop) {
+        font-size: clamp(90px, calc(90px + (100vw - 1024px) * 0.08434), 125px);
+      }
+      @include breakpoint(desktop) {
+        font-size: clamp(
+          125px,
+          calc(125px + (100vw - 1440px) * 0.08351),
+          165px
+        );
+      }
+      @include breakpoint(desktopxl) {
+        font-size: clamp(
+          165px,
+          calc(165px + (100vw - 1920px) * 0.0859375),
+          220px
+        );
+      }
+    }
+    .grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      @include breakpoint(tablet) {
+        gap: 20px;
+      }
+      @include breakpoint(laptop) {
+        gap: 30px;
+      }
+      @include breakpoint(desktop) {
+        gap: 50px;
+      }
+      @include breakpoint(desktopxl) {
+        gap: 80px;
+      }
+    }
+  }
+}

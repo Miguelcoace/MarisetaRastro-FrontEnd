@@ -8,12 +8,12 @@
   border: solid $font-color 3px;
   font-family: $WorkSans-font;
   color: $font-color;
-  font-size: clamp($font-size, calc(16px + (100vw - 320px) * 0.0179), 24px);
+  font-size: 14px;
   padding: 8px;
   letter-spacing: 4px;
   line-height: 5px;
   @include breakpoint(tablet) {
-    font-size: clamp(24px, calc(24px + (100vw - 768px) * 0.06275), 40px);
+    font-size: 14px;
   }
   @include breakpoint(laptop) {
     font-size: 16px;

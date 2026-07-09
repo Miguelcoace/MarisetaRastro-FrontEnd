@@ -56,18 +56,20 @@
       display: flex;
       justify-content: space-between;
       gap: 15px;
-      margin-top: 60px;
       @include breakpoint(tablet) {
         gap: 20px;
       }
       @include breakpoint(laptop) {
+        margin-top: 60px;
         gap: 30px;
       }
       @include breakpoint(desktop) {
         gap: 50px;
+        margin-top: 60px;
       }
       @include breakpoint(desktopxl) {
         gap: 80px;
+        margin-top: 60px;
       }
     }
   }

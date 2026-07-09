@@ -17,14 +17,11 @@
   }
   @include breakpoint(laptop) {
     font-size: 16px;
-    padding: 14px;
   }
   @include breakpoint(desktop) {
     font-size: 16px;
   }
   @include breakpoint(desktopxl) {
-    font-size: clamp(80px, calc(80px + (100vw - 1920px) * 0.03125), 100px);
-    padding: 30px;
-    border-width: 10px;
+    font-size: 16px;
   }
 }

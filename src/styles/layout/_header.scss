@@ -3,8 +3,8 @@
 .header {
   .hero {
     background:
-      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("../../assets/images.jfif");
+      linear-gradient(rgba(255, 255, 255, 0.39), rgba(0, 0, 0, 0.247)),
+      url("../../assets/placeholder.png");
     background-size: cover;
     background-position: center;
     height: clamp(220px, calc(220px + (100vw - 320px) * 0.2908), 350px);
@@ -16,33 +16,32 @@
       height: clamp(550px, calc(550px + (100vw - 768px) * 1.5625), 950px);
     }
     @include breakpoint(laptop) {
-      height: clamp(950px, calc(950px + (100vw - 1024px) * 0.60241), 1200px);
+      height: 90dvh;
     }
     @include breakpoint(desktop) {
-      height: clamp(1200px, calc(1200px + (100vw - 1440px) * 0.41667), 1400px);
+      height: 90dvh;
     }
     @include breakpoint(desktopxl) {
-      height: clamp(1400px, calc(1400px + (100vw - 1920px) * 0.625), 1800px);
+      height: 90dvh;
     }
     h1 {
       font-family: $Playfair-font, serif;
-      color: $tertiary-color;
+      color: green;
       text-shadow: 2px 2px 3px black;
       text-align: center;
       text-justify: center;
+      margin: 0px;
       font-size: clamp(32px, calc(32px + (100vw - 320px) * 0.07383), 65px);
       @include breakpoint(tablet) {
         font-size: clamp(65px, calc(65px + (100vw - 768px) * 0.09804), 90px);
       }
       @include breakpoint(laptop) {
-        font-size: clamp(90px, calc(90px + (100vw - 1024px) * 0.08434), 125px);
+        font-size: 60px;
+        width: 775px;
       }
       @include breakpoint(desktop) {
-        font-size: clamp(
-          125px,
-          calc(125px + (100vw - 1440px) * 0.08351),
-          165px
-        );
+        font-size: 60px;
+        width: 775px;
       }
       @include breakpoint(desktopxl) {
         font-size: clamp(
@@ -52,10 +51,15 @@
         );
       }
     }
+    h3 {
+      color: $font-color;
+      text-shadow: 2px 2px 3px black;
+    }
     .grid {
       display: flex;
       justify-content: space-between;
       gap: 15px;
+      margin-top: 60px;
       @include breakpoint(tablet) {
         gap: 20px;
       }

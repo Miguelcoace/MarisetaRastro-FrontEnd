@@ -8,6 +8,7 @@ function Header() {
       <header className="header">
         <div className="hero">
           <h1>Tu tienda hippie del Rastro de Madrid</h1>
+          <h3>Ropa artesanal, espíritu libre</h3>
           <div className="grid">
             <button className="btn">Ver Categorias</button>
             <button className="btn historia">Nuestra Historia</button>

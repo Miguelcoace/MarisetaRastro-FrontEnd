@@ -4,3 +4,6 @@
   background-color: $font-color;
   color: $white-color;
 }
+.categories article:hover {
+  transform: scale(1.1);
+}

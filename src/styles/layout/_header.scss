@@ -7,13 +7,13 @@
       url("../../assets/placeholder.png");
     background-size: cover;
     background-position: center;
-    height: clamp(220px, calc(220px + (100vw - 320px) * 0.2908), 350px);
+    height: 35dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     @include breakpoint(tablet) {
-      height: clamp(550px, calc(550px + (100vw - 768px) * 1.5625), 950px);
+      height: 35dvh;
     }
     @include breakpoint(laptop) {
       height: 90dvh;
@@ -33,7 +33,8 @@
       margin: 0px;
       font-size: clamp(32px, calc(32px + (100vw - 320px) * 0.07383), 65px);
       @include breakpoint(tablet) {
-        font-size: clamp(65px, calc(65px + (100vw - 768px) * 0.09804), 90px);
+        font-size: 40px;
+        width: 600px;
       }
       @include breakpoint(laptop) {
         font-size: 60px;
@@ -44,18 +45,31 @@
         width: 775px;
       }
       @include breakpoint(desktopxl) {
-        font-size: 60px;
-        width: 775px;
+        font-size: 75px;
+        width: 980px;
       }
     }
     h3 {
-      color: $font-color;
+      color: yellow;
       text-shadow: 2px 2px 3px black;
+      @include breakpoint(tablet) {
+        font-size: 16px;
+      }
+      @include breakpoint(laptop) {
+        font-size: 20px;
+      }
+      @include breakpoint(desktop) {
+        font-size: 24px;
+      }
+      @include breakpoint(desktopxl) {
+        font-size: 30px;
+      }
     }
     .grid {
       display: flex;
       justify-content: space-between;
       gap: 15px;
+      padding: 0px 20px;
       @include breakpoint(tablet) {
         gap: 20px;
       }

@@ -1,4 +1,10 @@
+@use "../abstracts/variables" as *;
 @mixin breakpoint($bp) {
+  @if $bp == mobileM {
+    @media (min-width: $bp-mobileM) {
+      @content;
+    }
+  }
   @if $bp == tablet {
     @media (min-width: $bp-tablet) {
       @content;

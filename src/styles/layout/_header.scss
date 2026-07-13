@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.AuthHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: auto;
+    width: 80dvw;
+    border-radius: 20px;
+    opacity: 0.7;
+  }
+  h1 {
+    position: absolute;
+    width: 70dvw;
+    color: $secondary-color;
+    text-shadow: 2px 2px 3px black;
+    text-align: center;
+  }
+
+  @include breakpoint(tablet) {
+    height: 100dvh;
+    background-color: beige;
+    width: 50dvw;
+    img {
+      height: 70%;
+      align-self: flex-end;
+      width: 95%;
+      border: solid black 10px;
+      opacity: 1;
+      margin-bottom: -20px;
+    }
+    h1 {
+      top: 60px;
+      font-size: 40px;
+      width: 350px;
+      color: $font-color;
+    }
+  }
+}

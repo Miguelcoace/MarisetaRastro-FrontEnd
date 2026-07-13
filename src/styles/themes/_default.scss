@@ -1,7 +1,10 @@
+@use "../abstracts/variables" as *;
 html * {
-    font-family: $roboto-font;
+  font-family: $Playfair-font, serif;
 }
- 
+
 body {
-    overflow-x: hidden;
-} 
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}

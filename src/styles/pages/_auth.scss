@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-.AuthSection {
+.AuthSection form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,8 +13,8 @@
   padding: 10px;
 
   // Modificamos para aplicar solo a los contenedores principales de los inputs
-  > .email,
-  > .password {
+  .email,
+  .password {
     padding: 10px 30px;
     border-radius: 10px;
     width: 80%;
@@ -134,7 +134,7 @@
 
   //Botón de enviar (Verde Oscuro)
   .btn-submit {
-    background-color: #2d3e33; // El tono verde oscuro de tu imagen
+    background-color: $font-color; // El tono verde oscuro de tu imagen
     color: #ffffff;
     border: none;
     border-radius: 12px; // Bordes bien redondeados
@@ -142,7 +142,7 @@
     width: calc(
       100% - 60px
     ); // Ajustado para mantener la alineación con el padding lateral
-    font-size: 14px;
+    font-size: $font-size;
     font-weight: bold;
     letter-spacing: 1px; // Un poco de espacio entre letras para el estilo "caps"
     cursor: pointer;
@@ -150,7 +150,6 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
     transition: background-color 0.2s ease;
 
     span {
@@ -280,4 +279,7 @@
       border-radius: 10px;
     }
   }
+}
+.submit {
+  margin: 0;
 }

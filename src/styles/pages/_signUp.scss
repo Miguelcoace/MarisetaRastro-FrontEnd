@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as *;
 @use "../base/icomoon" as *;
 
-.SignUpSection {
+.SignUpSection form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,16 +10,17 @@
   margin: 0 auto;
   background-image: url("../../assets/backgroundTexture.jpg");
   border-radius: 10px;
-  > .name,
-  > .email,
-  > .password {
-    padding: 10px 30px;
+  .name,
+  .surname,
+  .email,
+  .password {
+    padding: 0px 30px;
     width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    margin-top: 8px;
   }
 
   label {
@@ -35,6 +36,7 @@
     padding: 8px 0;
     font-size: 16px;
     width: 100%;
+    font-size: $font-size;
     border-radius: 10px;
   }
 
@@ -95,12 +97,9 @@
       }
     }
   }
-
   .SignUpbtn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    border: none;
+    width: max-content;
     background-color: $font-color;
     color: $white-color;
     font-family: $Geomini-font;

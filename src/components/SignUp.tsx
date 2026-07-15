@@ -63,7 +63,7 @@ function SignUp() {
       </section>
       <aside className="login">
         <p>
-          ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
+          ¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link>
         </p>
       </aside>
     </>

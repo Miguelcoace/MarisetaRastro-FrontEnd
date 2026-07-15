@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 import placeholder from "../assets/placeholder.png";
+
 import "../styles/base/_animations.scss";
 import "../styles/base/_typography.scss";
 import "../styles/layout/_header.scss";
 import "../styles/pages/_auth.scss";
 import "../styles/themes/_default.scss";
 
-function Auth() {
+function Login() {
   const [mostrarPassword, setMostrarPassword] = useState(false);
   const isDesktop = useMediaQuery({
     minWidth: 1024,
@@ -91,11 +93,11 @@ function Auth() {
         {/*Enlace de Registro Inferior */}
         <div className="register-footer">
           <p>¿Aún no tienes cuenta?</p>
-          <a href="#register">ÚNETE A LA COMUNIDAD</a>
+          <Link to="/signUp">ÚNETE A LA COMUNIDAD</Link>
         </div>
       </section>
     </>
   );
 }
 
-export default Auth;
+export default Login;

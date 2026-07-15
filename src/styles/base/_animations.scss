@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 // all keyframes
 .email input:focus {
   border-bottom-color: #007bff; /* La línea cambia a azul (o el color que prefieras) */
@@ -5,4 +7,10 @@
 
 .boton-ojo:hover {
   opacity: 1; /* Se vuelve más opaco al pasar el cursor */
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background-color: $font-color;
+  color: $white-color;
 }

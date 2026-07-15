@@ -37,4 +37,56 @@
       color: $font-color;
     }
   }
+
+  @include breakpoint(laptop) {
+    img {
+      height: 100%;
+      border: none;
+      align-self: auto;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      opacity: 0.9;
+    }
+    h1 {
+      top: 15%;
+      font-size: 60px;
+      width: 500px;
+    }
+    h2 {
+      position: absolute;
+      text-shadow: 2px 2px 3px black;
+      width: 450px;
+      text-align: center;
+      font-size: 30px;
+      color: $secondary-color;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    img {
+      height: 100%;
+      border: none;
+      align-self: auto;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      opacity: 0.9;
+    }
+    h1 {
+      top: 10%;
+      font-size: 60px;
+      width: 500px;
+    }
+    h2 {
+      position: absolute;
+      text-shadow: 2px 2px 3px black;
+      width: 450px;
+      text-align: center;
+      font-size: 30px;
+      color: $secondary-color;
+    }
+  }
 }

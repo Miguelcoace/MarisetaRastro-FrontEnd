@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import placeholder from "../assets/placeholder.png";
 import "../styles/base/_animations.scss";
 import "../styles/base/_typography.scss";
@@ -8,15 +9,26 @@ import "../styles/themes/_default.scss";
 
 function Auth() {
   const [mostrarPassword, setMostrarPassword] = useState(false);
+  const isDesktop = useMediaQuery({
+    minWidth: 1024,
+    maxWidth: 2560,
+  });
 
   return (
     <>
       <header className="AuthHeader">
         <img src={placeholder} alt="Placeholder" />
         <h1>Un gusto tenerte de vuelta</h1>
+        {isDesktop && (
+          <h2>
+            Donde la tradición se encuentra con la modernidad. Moda artesanal
+            para almas que valoran lo auténtico.
+          </h2>
+        )}
       </header>
 
       <section className="AuthSection">
+        <h2>Inicio de sesión</h2>
         {/* Campo: Correo */}
         <div className="email">
           <label htmlFor="email">Correo Electrónico</label>

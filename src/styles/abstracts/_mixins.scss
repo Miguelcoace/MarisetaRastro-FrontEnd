@@ -1,18 +1,13 @@
-@use "../abstracts/variables" as *;
+@use "./variables" as *;
 @mixin breakpoint($bp) {
-  @if $bp == mobileM {
-    @media (min-width: $bp-mobileM) {
-      @content;
-    }
-  }
   @if $bp == tablet {
     @media (min-width: $bp-tablet) {
       @content;
     }
   }
 
-  @if $bp == tablethorizontal {
-    @media (min-width: $bp-tablet-horizontal) {
+  @if $bp == laptop {
+    @media (min-width: $bp-laptop) {
       @content;
     }
   }

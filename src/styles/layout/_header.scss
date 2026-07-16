@@ -92,6 +92,16 @@
       color: $secondary-color;
     }
   }
+  @include breakpoint(desktopxl) {
+    h1 {
+      font-size: 120px;
+      width: fit-content;
+    }
+    h2 {
+      font-size: 60px;
+      width: fit-content;
+    }
+  }
 }
 
 .SignUpHeader {

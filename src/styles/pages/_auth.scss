@@ -264,6 +264,8 @@
 }
 @include breakpoint(laptop) {
   .AuthSection {
+    height: 100dvh;
+
     form {
       display: flex;
       flex-direction: column;

@@ -20,8 +20,11 @@
 
   @include breakpoint(tablet) {
     height: 100dvh;
+    justify-content: center;
     background-color: beige;
     width: 50dvw;
+    overflow: hidden;
+    padding: 5px;
     img {
       height: 70%;
       align-self: flex-end;
@@ -100,5 +103,30 @@
     width: 80%;
     text-align: center;
     color: $neutral-color;
+  }
+  @include breakpoint(tablet) {
+    height: 100dvh;
+    background-image: url("../../assets/placeholder.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    h2 {
+      text-shadow: 2px 2px 3px black;
+      font-size: 30px;
+    }
+    h4 {
+      color: $white-color;
+      font-size: 20px;
+      bottom: 20px;
+    }
+  }
+  @include breakpoint(desktopxl) {
+    h2 {
+      font-size: 150px;
+    }
+    h4 {
+      font-size: 50px;
+    }
   }
 }

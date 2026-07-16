@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../hooks/useAuth";
@@ -6,6 +7,7 @@ import { useAuth } from "../hooks/useAuth";
 import "../styles/base/_animations.scss";
 import "../styles/base/_typography.scss";
 import "../styles/components/_buttons.scss";
+import "../styles/layout/_forms.scss";
 import "../styles/layout/_header.scss";
 import "../styles/pages/_signUp.scss";
 import "../styles/themes/_default.scss";
@@ -24,6 +26,9 @@ function SignUp() {
 
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
   const [error, setError] = useState("");
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 2560 });
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -58,12 +63,21 @@ function SignUp() {
   return (
     <>
       <header className="SignUpHeader">
-        <h2>Crea tu cuenta</h2>
-        <h4>Únete a nuestra comunidad de moda lenta y artesanal</h4>
+        <h2>
+          {isMobile ? "Crea tu cuenta" : isTablet ? "MarisetaRastro" : ""}
+        </h2>
+        <h4>
+          {isMobile
+            ? "Únete a nuestra comunidad de moda lenta y artesanal"
+            : isTablet
+              ? "Uniendo el legado del Rastro madrileño con la elegancia contemporanea"
+              : ""}
+        </h4>
       </header>
 
       <section className="SignUpSection">
         <form onSubmit={handleSubmit}>
+          {isTablet && <h2>Crea tu cuenta</h2>}
           <div className="name">
             <label htmlFor="nombre">Nombre</label>
             <input
@@ -167,13 +181,12 @@ function SignUp() {
             CREAR CUENTA <span className="icon-arrow-right2"></span>
           </button>
         </form>
+        <aside className="login">
+          <p>
+            ¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link>
+          </p>
+        </aside>
       </section>
-
-      <aside className="login">
-        <p>
-          ¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link>
-        </p>
-      </aside>
     </>
   );
 }

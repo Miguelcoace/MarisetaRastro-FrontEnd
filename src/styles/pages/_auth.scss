@@ -332,6 +332,54 @@
   }
 }
 
+@include breakpoint(desktop) {
+  .AuthSection {
+    form {
+      h2 {
+        font-size: 35px;
+      }
+      .email,
+      .password,
+      .auth-options {
+        label {
+          font-size: 25px;
+        }
+        input {
+          font-size: 18px;
+        }
+        p {
+          font-size: 12px;
+        }
+        button {
+          font-size: 22px;
+        }
+        a {
+          font-size: 12px;
+        }
+      }
+      .btn-submit {
+        font-size: 22px;
+      }
+      .divider {
+        font-size: 11px;
+      }
+      .social-auth {
+        .btn-social {
+          font-size: 12px;
+        }
+      }
+      .register-footer {
+        p {
+          font-size: 15px;
+        }
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
 @include breakpoint(desktopxl) {
   .AuthSection {
     margin: 0;

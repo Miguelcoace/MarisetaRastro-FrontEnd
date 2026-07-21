@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useNavigate } from "react-router-dom";
 
-import "sass:math";
 import { useAuth } from "../hooks/useAuth";
 
 import placeholder from "../assets/placeholder.png";

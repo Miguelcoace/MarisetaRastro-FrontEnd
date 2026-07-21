@@ -278,53 +278,54 @@
 @include breakpoint(laptop) {
   .AuthSection {
     height: 100dvh;
+    margin: 0;
 
     form {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 80%;
-      margin: 20px;
       padding-bottom: 20px;
       h2 {
-        font-size: xx-large;
+        font-size: 40px;
       }
       .email,
       .password,
       .auth-options {
         label {
-          font-size: x-large;
+          font-size: 30px;
         }
         input {
-          font-size: larger;
+          font-size: 20px;
         }
         p {
-          font-size: larger;
+          font-size: 15px;
         }
         button {
           font-size: 25px;
         }
         a {
-          font-size: 18px;
+          font-size: 15px;
         }
       }
       .btn-submit {
-        font-size: x-large;
+        font-size: 25px;
       }
       .divider {
-        font-size: larger;
+        font-size: 14px;
       }
       .social-auth {
         .btn-social {
-          font-size: 18px;
+          padding: 8px 0;
+          font-size: 14px;
         }
       }
       .register-footer {
         p {
-          font-size: 22px;
+          font-size: 18px;
         }
         a {
-          font-size: 22px;
+          font-size: 20px;
         }
       }
     }

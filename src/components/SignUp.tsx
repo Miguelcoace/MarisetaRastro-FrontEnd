@@ -28,7 +28,7 @@ function SignUp() {
   const [error, setError] = useState("");
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 2560 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 4000 });
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

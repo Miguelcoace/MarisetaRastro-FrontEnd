@@ -1,9 +1,24 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $min-width: 1920, $max-width: 4000) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size}px,
+    calc(#{$intercept}px + #{$slope * 100}vw),
+    #{$max-size}px
+  );
+}
+
 .AuthHeader {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100dvh;
+  overflow: hidden;
   img {
     height: auto;
     width: 80dvw;
@@ -93,13 +108,17 @@
     }
   }
   @include breakpoint(desktopxl) {
+    padding: 0;
+    img {
+      height: 100%;
+    }
     h1 {
-      font-size: 120px;
-      width: fit-content;
+      font-size: fluid-size(70, 145);
+      width: 30%;
     }
     h2 {
-      font-size: 60px;
-      width: fit-content;
+      font-size: fluid-size(35, 72.5);
+      width: 40%;
     }
   }
 }
@@ -133,10 +152,10 @@
   }
   @include breakpoint(desktopxl) {
     h2 {
-      font-size: 150px;
+      font-size: fluid-size(80, 160);
     }
     h4 {
-      font-size: 50px;
+      font-size: fluid-size(40, 80);
     }
   }
 }

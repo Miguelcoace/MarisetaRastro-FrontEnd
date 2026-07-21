@@ -1,6 +1,18 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 @use "../base/icomoon" as *;
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $min-width: 1920, $max-width: 4000) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size}px,
+    calc(#{$intercept}px + #{$slope * 100}vw),
+    #{$max-size}px
+  );
+}
 
 .SignUpSection {
   display: flex;
@@ -190,41 +202,48 @@
   .SignUpSection {
     form {
       h2 {
-        font-size: 60px;
+        font-size: fluid-size(50, 100);
       }
+
       .name,
       .surname,
       .email,
       .password,
       .terms {
         label {
-          font-size: 50px;
+          font-size: fluid-size(30, 60);
         }
+
         input {
-          font-size: 40px;
+          font-size: fluid-size(22, 44);
         }
+
         p {
-          font-size: 30px;
+          font-size: fluid-size(18, 36);
         }
+
         button {
-          font-size: 45px;
+          font-size: fluid-size(28, 56);
         }
       }
+
       .SignUpbtn {
-        font-size: 40px;
-        padding: 15px 150px;
+        font-size: fluid-size(30, 60);
+        padding: fluid-size(15, 30) fluid-size(150, 300);
       }
     }
+
     .terms {
       input {
-        width: 30px;
-        height: 30px;
-        margin-right: 10px;
+        width: fluid-size(18, 36);
+        height: fluid-size(18, 36);
+        margin-right: fluid-size(10, 20);
       }
     }
+
     .login {
       p {
-        font-size: 30px;
+        font-size: fluid-size(18, 36);
       }
     }
   }

@@ -1,5 +1,17 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $min-width: 1920, $max-width: 4000) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size}px,
+    calc(#{$intercept}px + #{$slope * 100}vw),
+    #{$max-size}px
+  );
+}
 
 .AuthSection {
   display: flex;
@@ -7,6 +19,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  height: 100dvh;
   // Modificamos para aplicar solo a los contenedores principales de los inputs
   .email,
   .password {
@@ -320,46 +333,60 @@
 
 @include breakpoint(desktopxl) {
   .AuthSection {
+    margin: 0;
     form {
       h2 {
-        font-size: 60px;
+        font-size: fluid-size(50, 100);
       }
+
       .email,
       .password,
       .auth-options {
         label {
-          font-size: 50px;
+          font-size: fluid-size(35, 70);
+
+          span {
+            font-size: fluid-size(25, 50);
+          }
         }
+
         input {
-          font-size: 40px;
+          font-size: fluid-size(25, 50);
         }
+
         p {
-          font-size: 30px;
+          font-size: fluid-size(18, 36);
         }
+
         button {
-          font-size: 40px;
+          font-size: fluid-size(30, 60);
         }
+
         a {
-          font-size: 30px;
+          font-size: fluid-size(18, 36);
         }
       }
+
       .btn-submit {
-        font-size: 40px;
+        font-size: fluid-size(30, 60);
       }
+
       .divider {
-        font-size: 30px;
+        font-size: fluid-size(18, 36);
       }
       .social-auth {
         .btn-social {
-          font-size: 25px;
+          font-size: fluid-size(18, 36);
         }
       }
+
       .register-footer {
         p {
-          font-size: 35px;
+          font-size: fluid-size(22, 44);
         }
+
         a {
-          font-size: 35px;
+          font-size: fluid-size(28, 56);
         }
       }
     }

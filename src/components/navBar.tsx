@@ -1,33 +1,18 @@
 import { FaList, FaPaperPlane, FaShoppingCart, FaSun } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom"; // Use Link instead of <a> tags for internal routing
 import "../styles/base/_typography.scss";
 import "../styles/layout/_navbar.scss";
+
 function NavBar() {
-  const isMobileXL = useMediaQuery({
-    minWidth: 425,
-    maxWidth: 2560,
-  });
-  const is475Pixels = useMediaQuery({
-    minWidth: 475,
-    maxWidth: 2560,
-  });
-  const is525Pixels = useMediaQuery({
-    minWidth: 525,
-    maxWidth: 2560,
-  });
-  const is575Pixels = useMediaQuery({
-    minWidth: 575,
-    maxWidth: 2560,
-  });
-  const is625Pixels = useMediaQuery({
-    minWidth: 625,
-    maxWidth: 2560,
-  });
-  const is675Pixels = useMediaQuery({
-    minWidth: 675,
-    maxWidth: 2560,
-  });
+  const isMobileXL = useMediaQuery({ minWidth: 425, maxWidth: 2560 });
+  const is475Pixels = useMediaQuery({ minWidth: 475, maxWidth: 2560 });
+  const is525Pixels = useMediaQuery({ minWidth: 525, maxWidth: 2560 });
+  const is575Pixels = useMediaQuery({ minWidth: 575, maxWidth: 2560 });
+  const is625Pixels = useMediaQuery({ minWidth: 625, maxWidth: 2560 });
+  const is675Pixels = useMediaQuery({ minWidth: 675, maxWidth: 2560 });
+
   return (
     <nav className="navbar">
       <div className="logo-container">
@@ -57,7 +42,8 @@ function NavBar() {
           )}
           {is675Pixels && (
             <li>
-              <a href="#">Perfil</a>
+              {/* Use <Link> so React Router transitions without refreshing the page */}
+              <Link to="/login">Perfil</Link>
             </li>
           )}
         </ul>
@@ -86,4 +72,5 @@ function NavBar() {
     </nav>
   );
 }
+
 export default NavBar;

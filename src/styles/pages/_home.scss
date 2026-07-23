@@ -1,5 +1,8 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+.mainApp {
+  flex-direction: column;
+}
 .colections {
   margin: 0;
   display: flex;
@@ -9,12 +12,12 @@
   h2 {
     margin: 0;
     @include breakpoint(desktopxl) {
-      font-size: 70px;
+      font-size: 50px;
     }
   }
   @include breakpoint(desktopxl) {
     p {
-      font-size: 50px;
+      font-size: 30px;
     }
   }
   .categories {

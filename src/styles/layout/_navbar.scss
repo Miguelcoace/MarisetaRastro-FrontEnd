@@ -27,11 +27,7 @@
     );
   }
   @include breakpoint(desktopxl) {
-    font-size: clamp(
-      42px,
-      calc(42px + (56 - 42) * ((100vw - 1920px) / (2560 - 1920))),
-      56px
-    );
+    font-size: 24px;
   }
   .logo-container {
     display: flex;

@@ -1,0 +1,448 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $min-width: 1920, $max-width: 4000) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size}px,
+    calc(#{$intercept}px + #{$slope * 100}vw),
+    #{$max-size}px
+  );
+}
+
+main {
+  flex-direction: row;
+}
+.AuthSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 100dvh;
+  // Modificamos para aplicar solo a los contenedores principales de los inputs
+  .email,
+  .password {
+    padding: 10px 30px;
+    border-radius: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    label {
+      font-weight: 900;
+      font-family: $Geomini-font;
+      font-size: 14px;
+      color: #555; // Un color gris oscuro suave para los labels
+    }
+
+    input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      padding: 8px 0;
+      font-size: 16px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-bottom-color: #007bff;
+      }
+    }
+  }
+
+  // Estilos de la fila de la contraseña
+  .password-input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+
+    input {
+      border-bottom: none;
+      flex: 1;
+      padding: 8px 0;
+      margin: 0;
+    }
+
+    &:focus-within {
+      border-bottom-color: #007bff;
+    }
+  }
+
+  .boton-ojo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  //Contenedor para Recuérdame y ¿Olvidaste tu contraseña?
+  .auth-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; // Checkbox a la izquierda, enlace a la derecha
+    align-items: center;
+    width: 80%;
+    padding: 15px 30px; // Alineado con el padding de los inputs anteriores
+    font-size: 12px;
+    font-family: $Geomini-font;
+    gap: 40px;
+    @include breakpoint(mobileM) {
+      font-size: 11px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #555;
+
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #2d3e33; // Color verde para el checkbox activo si el navegador lo soporta
+      }
+    }
+
+    .forgot-password {
+      color: #555;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline; // Se subraya levemente al pasar el cursor
+      }
+    }
+  }
+
+  //Botón de enviar (Verde Oscuro)
+  .btn-submit {
+    background-color: $font-color; // El tono verde oscuro de tu imagen
+    color: #ffffff;
+    border: none;
+    border-radius: 12px; // Bordes bien redondeados
+    padding: 15px 0;
+    width: calc(
+      100% - 60px
+    ); // Ajustado para mantener la alineación con el padding lateral
+    font-size: $font-size;
+    font-weight: bold;
+    letter-spacing: 1px; // Un poco de espacio entre letras para el estilo "caps"
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s ease;
+
+    span {
+      font-size: 16px;
+    }
+
+    &:hover {
+      background-color: #223027; // Se oscurece un poco al pasar el cursor
+    }
+  }
+  //Separador con líneas laterales automáticas usando flex y pseudo-elementos
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: calc(100% - 60px);
+    margin: 25px 0;
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-family: $Geomini-font;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    &:not(:empty)::before {
+      margin-right: 15px;
+    }
+    &:not(:empty)::after {
+      margin-left: 15px;
+    }
+  }
+
+  //Contenedor de botones Google y Apple en horizontal
+  .social-auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    width: calc(100% - 60px);
+    margin-bottom: 40px;
+
+    .btn-social {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: transparent;
+      border: 1px solid #dcdcdc;
+      border-radius: 14px;
+      padding: 12px 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: #7a6e5d; // Tono marrón/grisáceo suave del texto de tu captura
+      cursor: pointer;
+      font-family: $Geomini-font;
+      transition:
+        background-color 0.2s,
+        border-color 0.2s;
+
+      .icon-placeholder {
+        font-size: 16px;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+        border-color: #b0b0b0;
+      }
+    }
+  }
+
+  //Texto e invitación inferior
+  .register-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      color: #666;
+      font-family: $Playfair-font; // Estilo Serif clásico para la pregunta según la imagen
+    }
+
+    a {
+      color: #2d3e33; // Mismo verde oscuro que el botón principal
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 1px;
+      font-family: $Geomini-font;
+      padding-bottom: 4px;
+      border-bottom: 3px solid #2d3e33; // Línea inferior más gruesa e identada
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+@include breakpoint(tablet) {
+  .AuthSection {
+    width: 50dvw;
+    height: 100dvh;
+  }
+}
+@include breakpoint(laptop) {
+  .AuthSection {
+    height: 100dvh;
+    margin: 0;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 80%;
+      padding-bottom: 20px;
+      h2 {
+        font-size: 40px;
+      }
+      .email,
+      .password,
+      .auth-options {
+        label {
+          font-size: 30px;
+        }
+        input {
+          font-size: 20px;
+        }
+        p {
+          font-size: 15px;
+        }
+        button {
+          font-size: 25px;
+        }
+        a {
+          font-size: 15px;
+        }
+      }
+      .btn-submit {
+        font-size: 25px;
+      }
+      .divider {
+        font-size: 14px;
+      }
+      .social-auth {
+        .btn-social {
+          padding: 8px 0;
+          font-size: 14px;
+        }
+      }
+      .register-footer {
+        p {
+          font-size: 18px;
+        }
+        a {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(desktop) {
+  .AuthSection {
+    form {
+      h2 {
+        font-size: 35px;
+      }
+      .email,
+      .password,
+      .auth-options {
+        label {
+          font-size: 25px;
+        }
+        input {
+          font-size: 18px;
+        }
+        p {
+          font-size: 12px;
+        }
+        button {
+          font-size: 22px;
+        }
+        a {
+          font-size: 12px;
+        }
+      }
+      .btn-submit {
+        font-size: 22px;
+      }
+      .divider {
+        font-size: 11px;
+      }
+      .social-auth {
+        .btn-social {
+          font-size: 12px;
+        }
+      }
+      .register-footer {
+        p {
+          font-size: 15px;
+        }
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(desktopxl) {
+  .AuthSection {
+    height: 80dvh;
+    margin-top: 40px;
+    form {
+      height: 100%;
+      h2 {
+        font-size: fluid-size(50, 100);
+      }
+
+      .email,
+      .password,
+      .auth-options {
+        label {
+          font-size: fluid-size(35, 70);
+
+          span {
+            font-size: fluid-size(25, 50);
+          }
+        }
+
+        input {
+          font-size: fluid-size(25, 50);
+        }
+
+        p {
+          font-size: fluid-size(18, 36);
+        }
+
+        button {
+          font-size: fluid-size(30, 60);
+        }
+
+        a {
+          font-size: fluid-size(18, 36);
+        }
+      }
+
+      .btn-submit {
+        font-size: fluid-size(30, 60);
+      }
+
+      .divider {
+        font-size: fluid-size(18, 36);
+      }
+      .social-auth {
+        .btn-social {
+          font-size: fluid-size(18, 36);
+        }
+      }
+
+      .register-footer {
+        p {
+          font-size: fluid-size(22, 44);
+        }
+
+        a {
+          font-size: fluid-size(28, 56);
+        }
+      }
+    }
+  }
+}

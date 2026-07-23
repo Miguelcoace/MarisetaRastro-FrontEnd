@@ -1,0 +1,252 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../base/icomoon" as *;
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $min-width: 1920, $max-width: 4000) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size}px,
+    calc(#{$intercept}px + #{$slope * 100}vw),
+    #{$max-size}px
+  );
+}
+.mainSignUp {
+  flex-direction: row;
+}
+
+.SignUpSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .name,
+  .surname,
+  .email,
+  .password {
+    padding: 0px 30px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 8px;
+  }
+
+  label {
+    font-weight: 900;
+    font-family: $Geomini-font;
+    font-size: $font-size;
+    color: $font-color; // Un color gris oscuro suave para los labels
+  }
+
+  input {
+    background-color: transparent;
+    border: 2px solid #868686;
+    padding: 8px 0;
+    font-size: 16px;
+    width: 100%;
+    font-size: $font-size;
+    border-radius: 10px;
+  }
+
+  // Estilos de la fila de la contraseña
+  .password-input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+
+    input {
+      flex: 1;
+      padding: 8px 0;
+      margin: 0;
+    }
+  }
+
+  .boton-ojo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .terms {
+    display: flex;
+    padding: 10px 30px;
+    width: 80%;
+    justify-content: left;
+    align-items: center;
+
+    input {
+      width: auto;
+    }
+    p {
+      font-size: 12px;
+      span {
+        text-decoration: underline;
+        text-decoration-color: #a7a7a7b0;
+        text-decoration-thickness: 1px;
+      }
+    }
+  }
+  .SignUpbtn {
+    border: none;
+    width: max-content;
+    background-color: $font-color;
+    color: $white-color;
+    font-family: $Geomini-font;
+    border-radius: 10px;
+    padding: 8px 50px;
+    margin-bottom: 20px;
+    .icon-arrow-right2:before {
+      content: "\ea3c";
+    }
+  }
+}
+
+.login {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  p {
+    font-size: 12px;
+  }
+  a {
+    color: $font-color;
+    text-decoration: underline;
+    font-weight: 500;
+    font-family: $Geomini-font;
+  }
+}
+
+@include breakpoint(tablet) {
+  .SignUpSection {
+    align-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    form {
+      border: 1px solid rgba(0, 0, 0, 0.089);
+      h2 {
+        margin: 10px 0 5px 0;
+      }
+    }
+  }
+}
+
+@include breakpoint(laptop) {
+  .SignUpSection {
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 80%;
+      margin: 20px;
+      padding-bottom: 20px;
+      h2 {
+        font-size: xx-large;
+      }
+      .name,
+      .surname,
+      .email,
+      .password,
+      .terms {
+        label {
+          font-size: x-large;
+        }
+        input {
+          font-size: larger;
+        }
+        p {
+          font-size: larger;
+        }
+        button {
+          font-size: 25px;
+        }
+      }
+      .SignUpbtn {
+        font-size: x-large;
+      }
+    }
+    .login {
+      p {
+        font-size: larger;
+      }
+    }
+  }
+}
+
+@include breakpoint(desktopxl) {
+  .SignUpSection {
+    height: 80dvh;
+    form {
+      height: 100%;
+      h2 {
+        font-size: fluid-size(50, 100);
+      }
+
+      .name,
+      .surname,
+      .email,
+      .password,
+      .terms {
+        label {
+          font-size: fluid-size(30, 60);
+        }
+
+        input {
+          font-size: fluid-size(22, 44);
+        }
+
+        p {
+          font-size: fluid-size(18, 36);
+        }
+
+        button {
+          font-size: fluid-size(28, 56);
+        }
+      }
+
+      .SignUpbtn {
+        font-size: fluid-size(30, 60);
+        padding: fluid-size(15, 30) fluid-size(150, 300);
+      }
+    }
+
+    .terms {
+      input {
+        width: fluid-size(18, 36);
+        height: fluid-size(18, 36);
+        margin-right: fluid-size(10, 20);
+      }
+    }
+
+    .login {
+      p {
+        font-size: fluid-size(18, 36);
+      }
+    }
+  }
+}

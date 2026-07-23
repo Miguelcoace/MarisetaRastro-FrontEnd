@@ -1,5 +1,17 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "sass:math";
+
+@function fluid-size($min-size, $max-size, $min-width: 1920, $max-width: 4000) {
+  $slope: math.div($max-size - $min-size, $max-width - $min-width);
+  $intercept: $min-size - $slope * $min-width;
+
+  @return clamp(
+    #{$min-size}px,
+    calc(#{$intercept}px + #{$slope * 100}vw),
+    #{$max-size}px
+  );
+}
 .header {
   .hero {
     background:
@@ -16,13 +28,13 @@
       height: 35dvh;
     }
     @include breakpoint(laptop) {
-      height: 90dvh;
+      height: 80dvh;
     }
     @include breakpoint(desktop) {
-      height: 90dvh;
+      height: 80dvh;
     }
     @include breakpoint(desktopxl) {
-      height: 90dvh;
+      height: 80dvh;
     }
     h1 {
       font-family: $Playfair-font, serif;
@@ -45,7 +57,7 @@
         width: 775px;
       }
       @include breakpoint(desktopxl) {
-        font-size: 75px;
+        font-size: 60px;
         width: 980px;
       }
     }
@@ -85,6 +97,156 @@
         gap: 80px;
         margin-top: 60px;
       }
+    }
+  }
+}
+
+.AuthHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  overflow: hidden;
+  img {
+    height: auto;
+    width: 80dvw;
+    border-radius: 20px;
+    opacity: 0.7;
+  }
+  h1 {
+    position: absolute;
+    width: 70dvw;
+    color: $secondary-color;
+    text-shadow: 2px 2px 3px black;
+    text-align: center;
+  }
+
+  @include breakpoint(tablet) {
+    height: 100dvh;
+    justify-content: center;
+    background-color: beige;
+    width: 50dvw;
+    overflow: hidden;
+    padding: 5px;
+    img {
+      height: 70%;
+      align-self: flex-end;
+      width: 95%;
+      border: solid black 10px;
+      opacity: 1;
+      margin-bottom: -20px;
+    }
+    h1 {
+      top: 60px;
+      font-size: 40px;
+      width: 350px;
+      color: $font-color;
+    }
+  }
+
+  @include breakpoint(laptop) {
+    padding: 0;
+    img {
+      height: 100%;
+      border: none;
+      align-self: auto;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      opacity: 0.9;
+    }
+    h1 {
+      top: 15%;
+      font-size: 60px;
+      width: 500px;
+    }
+    h2 {
+      position: absolute;
+      text-shadow: 2px 2px 3px black;
+      width: 450px;
+      text-align: center;
+      font-size: 30px;
+      color: $secondary-color;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    img {
+      height: 100%;
+      border: none;
+      align-self: auto;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      opacity: 0.9;
+    }
+    h1 {
+      top: 10%;
+      font-size: 60px;
+      width: 500px;
+    }
+    h2 {
+      position: absolute;
+      text-shadow: 2px 2px 3px black;
+      width: 450px;
+      text-align: center;
+      font-size: 30px;
+      color: $secondary-color;
+    }
+  }
+  @include breakpoint(desktopxl) {
+    height: 88.7dvh;
+    padding: 0;
+    img {
+      height: 100%;
+    }
+    h1 {
+      font-size: fluid-size(70, 145);
+      width: 30%;
+    }
+    h2 {
+      font-size: fluid-size(35, 72.5);
+      width: 40%;
+    }
+  }
+}
+
+.SignUpHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h4 {
+    width: 80%;
+    text-align: center;
+    color: $neutral-color;
+  }
+  @include breakpoint(tablet) {
+    height: 100dvh;
+    background-image: url("../../assets/placeholder.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    h2 {
+      text-shadow: 2px 2px 3px black;
+      font-size: 30px;
+    }
+    h4 {
+      color: $white-color;
+      font-size: 20px;
+      bottom: 20px;
+    }
+  }
+  @include breakpoint(desktopxl) {
+    height: 88.7dvh;
+    h2 {
+      font-size: fluid-size(80, 160);
+    }
+    h4 {
+      font-size: fluid-size(40, 80);
     }
   }
 }

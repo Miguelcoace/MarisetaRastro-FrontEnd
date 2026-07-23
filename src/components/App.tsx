@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import shirts_placeholder from "../assets/camisetas_placeholder.png";
 import hoddies_placeholder from "../assets/hoddies_placeholder.png";
 import pants_placeholder from "../assets/pantalones_placeholder.png";
@@ -15,7 +15,7 @@ import SignUp from "./SignUp.tsx";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/MarisetaRastro-FrontEnd">
+    <HashRouter basename="/MarisetaRastro-FrontEnd">
       {/* 1. NavBar stays on top */}
       <NavBar />
 
@@ -58,6 +58,6 @@ export default function App() {
           <Route path="/signUp" element={<SignUp />} />
         </Routes>
       </main>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

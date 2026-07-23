@@ -15,7 +15,7 @@ import SignUp from "./SignUp.tsx";
 
 export default function App() {
   return (
-    <HashRouter basename="/MarisetaRastro-FrontEnd">
+    <HashRouter>
       {/* 1. NavBar stays on top */}
       <NavBar />
 

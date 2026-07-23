@@ -1,0 +1,90 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.header {
+  .hero {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.39), rgba(0, 0, 0, 0.247)),
+      url("../../assets/placeholder.png");
+    background-size: cover;
+    background-position: center;
+    height: 35dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include breakpoint(tablet) {
+      height: 35dvh;
+    }
+    @include breakpoint(laptop) {
+      height: 90dvh;
+    }
+    @include breakpoint(desktop) {
+      height: 90dvh;
+    }
+    @include breakpoint(desktopxl) {
+      height: 90dvh;
+    }
+    h1 {
+      font-family: $Playfair-font, serif;
+      color: green;
+      text-shadow: 2px 2px 3px black;
+      text-align: center;
+      text-justify: center;
+      margin: 0px;
+      font-size: clamp(32px, calc(32px + (100vw - 320px) * 0.07383), 65px);
+      @include breakpoint(tablet) {
+        font-size: 40px;
+        width: 600px;
+      }
+      @include breakpoint(laptop) {
+        font-size: 60px;
+        width: 775px;
+      }
+      @include breakpoint(desktop) {
+        font-size: 60px;
+        width: 775px;
+      }
+      @include breakpoint(desktopxl) {
+        font-size: 75px;
+        width: 980px;
+      }
+    }
+    h3 {
+      color: yellow;
+      text-shadow: 2px 2px 3px black;
+      @include breakpoint(tablet) {
+        font-size: 16px;
+      }
+      @include breakpoint(laptop) {
+        font-size: 20px;
+      }
+      @include breakpoint(desktop) {
+        font-size: 24px;
+      }
+      @include breakpoint(desktopxl) {
+        font-size: 30px;
+      }
+    }
+    .grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 0px 20px;
+      @include breakpoint(tablet) {
+        gap: 20px;
+      }
+      @include breakpoint(laptop) {
+        margin-top: 60px;
+        gap: 30px;
+      }
+      @include breakpoint(desktop) {
+        gap: 50px;
+        margin-top: 60px;
+      }
+      @include breakpoint(desktopxl) {
+        gap: 80px;
+        margin-top: 60px;
+      }
+    }
+  }
+}

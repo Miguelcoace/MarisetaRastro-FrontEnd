@@ -1,0 +1,31 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.btn {
+  transition:
+    transform 0.3s linear,
+    background-color 0.3s linear;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: solid $font-color 3px;
+  font-family: $WorkSans-font;
+  color: $font-color;
+  font-size: 14px;
+  padding: 5px 0px;
+  letter-spacing: 4px;
+  line-height: 14px;
+  @include breakpoint(tablet) {
+    font-size: 14px;
+    padding: 10px 5px;
+  }
+  @include breakpoint(laptop) {
+    font-size: 16px;
+    padding: 12px 8px;
+  }
+  @include breakpoint(desktop) {
+    font-size: 18px;
+    padding: 15px 12px;
+  }
+  @include breakpoint(desktopxl) {
+    font-size: 22px;
+    padding: 20px 15px;
+  }
+}
